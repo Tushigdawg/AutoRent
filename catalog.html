@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Каталог автомобилей для аренды: фильтры по марке, классу и цене, сортировка.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Каталог автомобилей — AutoRent">
+  <meta property="og:description" content="Каталог автомобилей для аренды: фильтры по марке, классу и цене, сортировка.">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="theme-color" content="#0a2540">
+  <title>Каталог автомобилей — AutoRent</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/cars.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="index.html"><img class="site-header__logo-mark" src="images/favicon.svg" alt=""><span>Auto<span class="site-header__logo-accent">Rent</span></span></a>
+
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html">Главная</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link site-nav__link--active" href="catalog.html" aria-current="page">Каталог</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="category.html">Классы</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="contacts.html">Контакты</a>
+          </li>
+        </ul>
+      </nav>
+
+      <a class="site-header__fav" href="catalog.html?status=favorite" aria-label="Избранные автомобили">
+        <span class="site-header__fav-icon" aria-hidden="true">&#9829;</span>
+        <span class="visually-hidden">Избранное:</span>
+        <span class="site-header__fav-count" id="fav-count">0</span>
+      </a>
+
+      <a class="site-header__phone" href="tel:+79000000000" aria-label="Позвонить: +7 (900) 000-00-00">+7 (900) 000-00-00</a>
+
+      <button class="button button--accent site-header__cta" type="button" data-rent>Забронировать</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <a class="breadcrumbs__link" href="index.html">Главная</a>
+      <span class="breadcrumbs__current" aria-current="page">Каталог</span>
+    </nav>
+
+    <section class="section">
+      <h1 class="section__title">Каталог автомобилей</h1>
+      <p>
+        Выберите марку, класс и цену за сутки или отсортируйте список.
+        Карточки выделены по типу: хит, новинка, скидка, занят.
+      </p>
+    </section>
+
+    <section class="catalog-layout">
+      <aside class="catalog-filters">
+        <div class="catalog-filters__header">
+          <h2 class="catalog-filters__title">Фильтры</h2>
+          <button class="button button--secondary catalog-filters__toggle" type="button" data-filters-toggle aria-expanded="false" aria-controls="filters-panel">Показать</button>
+        </div>
+        <div class="catalog-filters__panel" id="filters-panel">
+
+        <form class="filters-form" id="filters-form" action="#" method="get">
+          <fieldset class="filters-form__fieldset">
+            <legend class="filters-form__legend">Поиск, марка и кузов</legend>
+            <label class="filters-form__label" for="filter-q">Название</label>
+            <input class="filters-form__input" id="filter-q" name="q" type="search" placeholder="Например, Camry">
+            <label class="filters-form__label" for="filter-brand">Марка</label>
+            <select class="filters-form__select" id="filter-brand" name="brand" data-brand-options>
+              <option value="">Все марки</option>
+            </select>
+            <label class="filters-form__label" for="filter-body">Тип кузова</label>
+            <select class="filters-form__select" id="filter-body" name="body" data-body-options>
+              <option value="">Любой кузов</option>
+            </select>
+          </fieldset>
+
+          <fieldset class="filters-form__fieldset">
+            <legend class="filters-form__legend">Класс</legend>
+            <label class="filters-form__label"><input type="checkbox" name="category" value="economy"> Эконом и комфорт</label>
+            <label class="filters-form__label"><input type="checkbox" name="category" value="business"> Бизнес</label>
+            <label class="filters-form__label"><input type="checkbox" name="category" value="suv"> Внедорожники и кроссоверы</label>
+            <label class="filters-form__label"><input type="checkbox" name="category" value="sport"> Спорт и премиум</label>
+          </fieldset>
+
+          <fieldset class="filters-form__fieldset">
+            <legend class="filters-form__legend">Статус</legend>
+            <label class="filters-form__label"><input type="checkbox" name="status" value="in-stock"> Только свободные</label>
+            <label class="filters-form__label"><input type="checkbox" name="status" value="hit"> Хиты</label>
+            <label class="filters-form__label"><input type="checkbox" name="status" value="new"> Новинки</label>
+            <label class="filters-form__label"><input type="checkbox" name="status" value="discount"> Со скидкой</label>
+            <label class="filters-form__label"><input type="checkbox" name="status" value="favorite"> Избранное</label>
+          </fieldset>
+
+          <fieldset class="filters-form__fieldset">
+            <legend class="filters-form__legend">Цена за сутки, ₽</legend>
+            <label class="filters-form__label" for="price-from">От</label>
+            <input class="filters-form__input" id="price-from" name="price-from" type="number" min="0" placeholder="0">
+            <label class="filters-form__label" for="price-to">До</label>
+            <input class="filters-form__input" id="price-to" name="price-to" type="number" min="0" placeholder="90000">
+          </fieldset>
+
+          <button class="button button--primary" type="submit">Применить</button>
+          <button class="button button--ghost" type="reset">Сбросить</button>
+        </form>
+        </div>
+      </aside>
+
+      <section class="catalog-products">
+        <h2 class="catalog-products__title">Список автомобилей</h2>
+
+        <div class="catalog-toolbar">
+          <p class="catalog-toolbar__count" id="results-count" role="status">Найдено: 20 автомобилей</p>
+          <div class="catalog-toolbar__sort">
+            <label for="sort-select">Сортировка:</label>
+            <select class="catalog-toolbar__select" id="sort-select">
+              <option value="default">По умолчанию</option>
+              <option value="price-asc">Сначала дешёвые</option>
+              <option value="price-desc">Сначала дорогие</option>
+              <option value="name">По названию</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="products-grid" data-sortable></div>
+
+        <p class="catalog-empty" id="catalog-empty" hidden>Ничего не найдено. Измените фильтры или нажмите «Сбросить».</p>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contacts">
+    <div class="site-footer__inner">
+      <div class="site-footer__info">
+        <p class="site-footer__brand">Auto<span class="site-footer__accent">Rent</span></p>
+        <address class="site-footer__address">
+          <p class="site-footer__text"><span class="site-footer__label">Телефон:</span> <a class="site-footer__link" href="tel:+79000000000">+7 (900) 000-00-00</a></p>
+          <p class="site-footer__text"><span class="site-footer__label">E-mail:</span> <a class="site-footer__link" href="mailto:info@example.com">info@example.com</a></p>
+          <p class="site-footer__text"><span class="site-footer__label">Адрес:</span> г. Москва, учебный проект</p>
+          <p class="site-footer__text"><span class="site-footer__label">Режим работы:</span> ежедневно, 08:00–22:00</p>
+        </address>
+      </div>
+      <nav class="site-footer__nav" aria-label="Разделы сайта">
+        <a class="site-footer__nav-link" href="catalog.html">Каталог</a>
+        <a class="site-footer__nav-link" href="category.html">Классы</a>
+        <a class="site-footer__nav-link" href="contacts.html">Контакты</a>
+      </nav>
+
+      <div class="site-footer__action">
+        <p class="site-footer__text">Готовы выбрать автомобиль?</p>
+        <button class="button button--accent button--large" type="button" data-rent>Забронировать</button>
+      </div>
+    </div>
+    <p class="site-footer__copy">&copy; 2026 Учебный проект. Все права защищены. Дисциплина: Фронтенд и бэкенд разработка</p>
+  </footer>
+
+  <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title" aria-describedby="order-dialog-desc">
+    <div class="order-dialog__content">
+      <div class="order-dialog__header">
+        <h2 class="order-dialog__title" id="order-dialog-title">Заявка на бронирование</h2>
+        <button class="order-dialog__close" type="button" data-close-dialog aria-label="Закрыть окно">&times;</button>
+      </div>
+      <p class="order-dialog__text" id="order-dialog-desc">
+        Вы выбрали: <strong id="order-dialog-product">автомобиль не выбран</strong>.
+        Поля, отмеченные <span aria-hidden="true">*</span><span class="visually-hidden">звёздочкой</span>, обязательны.
+      </p>
+
+      <div class="error-summary" id="order-form-summary" role="group" aria-labelledby="order-summary-title" tabindex="-1" hidden>
+        <h3 class="error-summary__title" id="order-summary-title">Проверьте форму</h3>
+        <ul class="error-summary__list" id="order-summary-list"></ul>
+      </div>
+
+      <form class="order-form" id="order-form" action="#" method="post" novalidate>
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-car">Автомобиль <span class="order-form__required" aria-hidden="true">*</span></label>
+          <select class="order-form__select" id="order-car" name="car" required aria-describedby="order-car-error"></select>
+          <p class="order-form__error" id="order-car-error" hidden></p>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-name">Имя <span class="order-form__required" aria-hidden="true">*</span></label>
+          <input class="order-form__input" id="order-name" name="name" type="text" placeholder="Введите ваше имя" autocomplete="given-name" required aria-describedby="order-name-error">
+          <p class="order-form__error" id="order-name-error" hidden></p>
+        </div>
+
+        <div class="order-form__row">
+          <div class="order-form__field">
+            <label class="order-form__label" for="order-email">E-mail <span class="order-form__required" aria-hidden="true">*</span></label>
+            <input class="order-form__input" id="order-email" name="email" type="email" placeholder="example@mail.ru" autocomplete="email" required aria-describedby="order-email-error">
+            <p class="order-form__error" id="order-email-error" hidden></p>
+          </div>
+
+          <div class="order-form__field">
+            <label class="order-form__label" for="order-phone">Телефон <span class="order-form__required" aria-hidden="true">*</span></label>
+            <input class="order-form__input" id="order-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00" pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$" required aria-describedby="order-phone-hint order-phone-error">
+            <small class="order-form__hint" id="order-phone-hint">Формат: +7 (900) 000-00-00</small>
+            <p class="order-form__error" id="order-phone-error" hidden></p>
+          </div>
+        </div>
+
+        <div class="order-form__row">
+          <div class="order-form__field">
+            <label class="order-form__label" for="order-start">Начало аренды <span class="order-form__required" aria-hidden="true">*</span></label>
+            <input class="order-form__input" id="order-start" name="start" type="date" required aria-describedby="order-start-error">
+            <p class="order-form__error" id="order-start-error" hidden></p>
+          </div>
+
+          <div class="order-form__field">
+            <label class="order-form__label" for="order-end">Окончание аренды <span class="order-form__required" aria-hidden="true">*</span></label>
+            <input class="order-form__input" id="order-end" name="end" type="date" required aria-describedby="order-end-error">
+            <p class="order-form__error" id="order-end-error" hidden></p>
+          </div>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-place">Место получения <span class="order-form__required" aria-hidden="true">*</span></label>
+          <select class="order-form__select" id="order-place" name="place" required aria-describedby="order-place-error">
+            <option value="">Выберите место</option>
+            <option value="office">Офис в центре города</option>
+            <option value="airport">Аэропорт</option>
+            <option value="delivery">Доставка по адресу</option>
+          </select>
+          <p class="order-form__error" id="order-place-error" hidden></p>
+        </div>
+
+        <fieldset class="order-form__fieldset">
+          <legend class="order-form__legend">Дополнительные услуги</legend>
+          <label class="order-form__option"><input class="order-form__input" type="checkbox" name="extras" value="seat"> Детское кресло (+300 ₽/сутки)</label>
+          <label class="order-form__option"><input class="order-form__input" type="checkbox" name="extras" value="gps"> GPS-навигатор (+250 ₽/сутки)</label>
+          <label class="order-form__option"><input class="order-form__input" type="checkbox" name="extras" value="insurance"> Полная страховка (+700 ₽/сутки)</label>
+          <label class="order-form__option"><input class="order-form__input" type="checkbox" name="extras" value="driver"> Водитель (+2 500 ₽/сутки)</label>
+        </fieldset>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-comment">Комментарий</label>
+          <textarea class="order-form__textarea" id="order-comment" name="comment" rows="3" placeholder="Укажите дополнительную информацию" aria-describedby="order-comment-error"></textarea>
+          <p class="order-form__error" id="order-comment-error" hidden></p>
+        </div>
+
+        <fieldset class="order-form__fieldset">
+          <legend class="order-form__legend">Как с вами связаться</legend>
+          <label class="order-form__option"><input class="order-form__input" type="radio" name="contact-method" value="phone" checked> По телефону</label>
+          <label class="order-form__option"><input class="order-form__input" type="radio" name="contact-method" value="email"> По e-mail</label>
+        </fieldset>
+
+        <div class="order-summary" role="group" aria-label="Стоимость аренды">
+          <p class="order-summary__total" id="order-total" role="status">Итого: —</p>
+          <p class="order-summary__text" id="order-total-text">Выберите автомобиль и даты аренды, чтобы увидеть стоимость.</p>
+        </div>
+
+        <div class="order-form__field order-form__field--checkbox">
+          <label class="order-form__label">
+            <input class="order-form__input" id="order-agreement" name="agreement" type="checkbox" required aria-describedby="order-agreement-error">
+            Я согласен на обработку данных <span class="order-form__required" aria-hidden="true">*</span>
+          </label>
+          <p class="order-form__error" id="order-agreement-error" hidden></p>
+        </div>
+
+        <div class="order-form__actions">
+          <button class="button button--secondary" type="button" id="close-order-dialog" data-close-dialog>Закрыть</button>
+          <button class="button button--primary" type="submit">Отправить заявку</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="Наверх" title="Наверх" hidden>&uarr;</button>
+
+  <div class="toast" id="success-toast" role="status" aria-live="polite" aria-atomic="true" hidden>
+    <p class="toast__text" id="success-message"></p>
+    <button class="toast__close" type="button" data-close-toast aria-label="Закрыть">&times;</button>
+  </div>
+  </div>
+</body>
+</html>

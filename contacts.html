@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Контактная информация AutoRent: телефон, e-mail, адрес и частые вопросы об аренде автомобилей.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Контакты — AutoRent">
+  <meta property="og:description" content="Контактная информация AutoRent: телефон, e-mail, адрес и частые вопросы об аренде автомобилей.">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="theme-color" content="#0a2540">
+  <title>Контакты — AutoRent</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/cars.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="index.html"><img class="site-header__logo-mark" src="images/favicon.svg" alt=""><span>Auto<span class="site-header__logo-accent">Rent</span></span></a>
+
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html">Главная</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="catalog.html">Каталог</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="category.html">Классы</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link site-nav__link--active" href="contacts.html" aria-current="page">Контакты</a>
+          </li>
+        </ul>
+      </nav>
+
+      <a class="site-header__fav" href="catalog.html?status=favorite" aria-label="Избранные автомобили">
+        <span class="site-header__fav-icon" aria-hidden="true">&#9829;</span>
+        <span class="visually-hidden">Избранное:</span>
+        <span class="site-header__fav-count" id="fav-count">0</span>
+      </a>
+
+      <a class="site-header__phone" href="tel:+79000000000" aria-label="Позвонить: +7 (900) 000-00-00">+7 (900) 000-00-00</a>
+
+      <button class="button button--accent site-header__cta" type="button" data-rent>Забронировать</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <a class="breadcrumbs__link" href="index.html">Главная</a>
+      <span class="breadcrumbs__current" aria-current="page">Контакты</span>
+    </nav>
+
+    <section class="section">
+      <h1 class="section__title">Контакты</h1>
+      <ul class="contact-grid">
+        <li class="contact-card">
+          <h2 class="contact-card__title">Телефон</h2>
+          <p class="contact-card__text"><a href="tel:+79000000000">+7 (900) 000-00-00</a></p>
+        </li>
+        <li class="contact-card">
+          <h2 class="contact-card__title">E-mail</h2>
+          <p class="contact-card__text"><a href="mailto:info@example.com">info@example.com</a></p>
+        </li>
+        <li class="contact-card">
+          <h2 class="contact-card__title">Адрес офиса</h2>
+          <p class="contact-card__text">г. Москва, учебный проект</p>
+        </li>
+        <li class="contact-card">
+          <h2 class="contact-card__title">Режим работы</h2>
+          <p class="contact-card__text">Ежедневно, 08:00–22:00</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="cta-banner" id="feedback" aria-labelledby="feedback-title">
+      <div>
+        <h2 class="cta-banner__title" id="feedback-title">Обратная связь</h2>
+        <p class="cta-banner__text">Оставьте заявку на бронирование или задайте вопрос — мы свяжемся с вами.</p>
+      </div>
+      <button class="button button--accent button--large" type="button" data-rent>Открыть форму заявки</button>
+    </section>
+
+    <section class="section" id="points" aria-labelledby="points-title">
+      <h2 class="section__title" id="points-title">Где получить автомобиль</h2>
+      <p class="section__lead">Выберите удобный способ получения и возврата — место указывается в форме бронирования.</p>
+      <ul class="contact-grid contact-grid--three">
+        <li class="contact-card">
+          <h3 class="contact-card__title">Офис в центре города</h3>
+          <p class="contact-card__text">Бесплатно</p>
+          <p class="contact-card__note">Ежедневно с 08:00 до 22:00. Автомобиль готовится заранее, оформление занимает около 15 минут.</p>
+        </li>
+        <li class="contact-card">
+          <h3 class="contact-card__title">Аэропорт</h3>
+          <p class="contact-card__text">Бесплатно</p>
+          <p class="contact-card__note">Встретим вас в зоне прилёта и передадим ключи. Укажите номер рейса в комментарии к заявке.</p>
+        </li>
+        <li class="contact-card">
+          <h3 class="contact-card__title">Доставка по адресу</h3>
+          <p class="contact-card__text">По договорённости</p>
+          <p class="contact-card__note">Привезём автомобиль к дому, офису или отелю в удобное время. Стоимость зависит от расстояния.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <h2 class="section__title" id="faq-title">Частые вопросы</h2>
+      <p class="section__lead">Ответы на самые популярные вопросы об аренде. Нажмите на вопрос, чтобы раскрыть ответ.</p>
+      <div class="faq">
+        <details class="faq__item" open>
+          <summary class="faq__question">Какие документы нужны для аренды?</summary>
+          <p class="faq__answer">Для оформления аренды достаточно двух документов: паспорта и водительского удостоверения. Удостоверение должно быть действующим, а водительский стаж — не меньше минимального для выбранного класса: 1 год для эконом-класса, 2 года для бизнеса и внедорожников, 3 года для спорткаров и премиум-автомобилей. Иностранным гражданам нужны также национальные права и их нотариальный перевод.</p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__question">Какой минимальный возраст водителя?</summary>
+          <p class="faq__answer">Для автомобилей эконом-класса — от 21 года, для бизнеса и внедорожников — от 23 лет, для спорткаров и премиум-класса — от 25 лет. Точные требования для каждого автомобиля указаны в его карточке в разделе «Условия аренды».</p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__question">Как рассчитывается стоимость аренды?</summary>
+          <p class="faq__answer">Цена за сутки умножается на количество суток. Чем дольше аренда, тем выгоднее: от 3 суток действует скидка 5%, от 7 суток — 10%, от 14 суток — 15%. Дополнительные услуги (детское кресло, GPS, полная страховка, водитель) оплачиваются отдельно и считаются за каждые сутки. Предварительную сумму можно узнать в калькуляторе на странице любого автомобиля.</p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__question">Нужен ли залог и когда он возвращается?</summary>
+          <p class="faq__answer">Да, залог нужен. Его размер зависит от автомобиля: от 5 000 ₽ за экономичный хэтчбек до нескольких сотен тысяч рублей за суперкар. Точная сумма указана в характеристиках автомобиля. Залог полностью возвращается при сдаче автомобиля без повреждений и с тем же уровнем топлива, который был при выдаче.</p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__question">Какой пробег включён в аренду?</summary>
+          <p class="faq__answer">В стоимость включено 300 километров в сутки. Если вы проедете больше, за каждый дополнительный километр взимается 15 ₽. Если вы планируете дальнюю поездку, сообщите об этом в комментарии к заявке — мы подскажем подходящий вариант.</p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__question">Где можно получить и вернуть автомобиль?</summary>
+          <p class="faq__answer">Автомобиль можно забрать в нашем офисе в центре города, в аэропорту или заказать доставку по указанному адресу. Место получения выбирается в форме бронирования. Возвращать автомобиль можно в том же месте или в другом, о чём нужно заранее договориться с менеджером.</p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__question">Включена ли страховка?</summary>
+          <p class="faq__answer">Все автомобили застрахованы по ОСАГО. Если вы хотите быть спокойнее в дороге, добавьте к аренде полную страховку без франшизы за 700 ₽ в сутки: в этом случае вам не придётся оплачивать ремонт при повреждении автомобиля не по вашей вине и в большинстве других случаев.</p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__question">Можно ли отменить или изменить бронирование?</summary>
+          <p class="faq__answer">Да. Бесплатно отменить бронирование или изменить даты можно не позднее чем за 24 часа до начала аренды. Для этого позвоните нам по телефону или напишите на почту. При более поздней отмене может удерживаться стоимость первых суток аренды.</p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__question">Как оплатить аренду?</summary>
+          <p class="faq__answer">Оплатить аренду можно банковской картой онлайн или при получении автомобиля. После отправки заявки менеджер свяжется с вами выбранным способом, подтвердит наличие автомобиля на ваши даты и сообщит окончательную сумму.</p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__question">Что делать, если автомобиль сломался или попал в ДТП?</summary>
+          <p class="faq__answer">Сразу позвоните в службу поддержки — она работает круглосуточно. Не уезжайте с места происшествия и дождитесь инструкций: мы поможем оформить документы, организуем эвакуацию и при возможности подберём вам замену.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contacts">
+    <div class="site-footer__inner">
+      <div class="site-footer__info">
+        <p class="site-footer__brand">Auto<span class="site-footer__accent">Rent</span></p>
+        <address class="site-footer__address">
+          <p class="site-footer__text"><span class="site-footer__label">Телефон:</span> <a class="site-footer__link" href="tel:+79000000000">+7 (900) 000-00-00</a></p>
+          <p class="site-footer__text"><span class="site-footer__label">E-mail:</span> <a class="site-footer__link" href="mailto:info@example.com">info@example.com</a></p>
+          <p class="site-footer__text"><span class="site-footer__label">Адрес:</span> г. Москва, учебный проект</p>
+          <p class="site-footer__text"><span class="site-footer__label">Режим работы:</span> ежедневно, 08:00–22:00</p>
+        </address>
+      </div>
+      <nav class="site-footer__nav" aria-label="Разделы сайта">
+        <a class="site-footer__nav-link" href="catalog.html">Каталог</a>
+        <a class="site-footer__nav-link" href="category.html">Классы</a>
+        <a class="site-footer__nav-link" href="contacts.html">Контакты</a>
+      </nav>
+
+      <div class="site-footer__action">
+        <p class="site-footer__text">Готовы выбрать автомобиль?</p>
+        <button class="button button--accent button--large" type="button" data-rent>Забронировать</button>
+      </div>
+    </div>
+    <p class="site-footer__copy">&copy; 2026 Учебный проект. Все права защищены. Дисциплина: Фронтенд и бэкенд разработка</p>
+  </footer>
+
+  <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title" aria-describedby="order-dialog-desc">
+    <div class="order-dialog__content">
+      <div class="order-dialog__header">
+        <h2 class="order-dialog__title" id="order-dialog-title">Заявка на бронирование</h2>
+        <button class="order-dialog__close" type="button" data-close-dialog aria-label="Закрыть окно">&times;</button>
+      </div>
+      <p class="order-dialog__text" id="order-dialog-desc">
+        Вы выбрали: <strong id="order-dialog-product">автомобиль не выбран</strong>.
+        Поля, отмеченные <span aria-hidden="true">*</span><span class="visually-hidden">звёздочкой</span>, обязательны.
+      </p>
+
+      <div class="error-summary" id="order-form-summary" role="group" aria-labelledby="order-summary-title" tabindex="-1" hidden>
+        <h3 class="error-summary__title" id="order-summary-title">Проверьте форму</h3>
+        <ul class="error-summary__list" id="order-summary-list"></ul>
+      </div>
+
+      <form class="order-form" id="order-form" action="#" method="post" novalidate>
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-car">Автомобиль <span class="order-form__required" aria-hidden="true">*</span></label>
+          <select class="order-form__select" id="order-car" name="car" required aria-describedby="order-car-error"></select>
+          <p class="order-form__error" id="order-car-error" hidden></p>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-name">Имя <span class="order-form__required" aria-hidden="true">*</span></label>
+          <input class="order-form__input" id="order-name" name="name" type="text" placeholder="Введите ваше имя" autocomplete="given-name" required aria-describedby="order-name-error">
+          <p class="order-form__error" id="order-name-error" hidden></p>
+        </div>
+
+        <div class="order-form__row">
+          <div class="order-form__field">
+            <label class="order-form__label" for="order-email">E-mail <span class="order-form__required" aria-hidden="true">*</span></label>
+            <input class="order-form__input" id="order-email" name="email" type="email" placeholder="example@mail.ru" autocomplete="email" required aria-describedby="order-email-error">
+            <p class="order-form__error" id="order-email-error" hidden></p>
+          </div>
+
+          <div class="order-form__field">
+            <label class="order-form__label" for="order-phone">Телефон <span class="order-form__required" aria-hidden="true">*</span></label>
+            <input class="order-form__input" id="order-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00" pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$" required aria-describedby="order-phone-hint order-phone-error">
+            <small class="order-form__hint" id="order-phone-hint">Формат: +7 (900) 000-00-00</small>
+            <p class="order-form__error" id="order-phone-error" hidden></p>
+          </div>
+        </div>
+
+        <div class="order-form__row">
+          <div class="order-form__field">
+            <label class="order-form__label" for="order-start">Начало аренды <span class="order-form__required" aria-hidden="true">*</span></label>
+            <input class="order-form__input" id="order-start" name="start" type="date" required aria-describedby="order-start-error">
+            <p class="order-form__error" id="order-start-error" hidden></p>
+          </div>
+
+          <div class="order-form__field">
+            <label class="order-form__label" for="order-end">Окончание аренды <span class="order-form__required" aria-hidden="true">*</span></label>
+            <input class="order-form__input" id="order-end" name="end" type="date" required aria-describedby="order-end-error">
+            <p class="order-form__error" id="order-end-error" hidden></p>
+          </div>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-place">Место получения <span class="order-form__required" aria-hidden="true">*</span></label>
+          <select class="order-form__select" id="order-place" name="place" required aria-describedby="order-place-error">
+            <option value="">Выберите место</option>
+            <option value="office">Офис в центре города</option>
+            <option value="airport">Аэропорт</option>
+            <option value="delivery">Доставка по адресу</option>
+          </select>
+          <p class="order-form__error" id="order-place-error" hidden></p>
+        </div>
+
+        <fieldset class="order-form__fieldset">
+          <legend class="order-form__legend">Дополнительные услуги</legend>
+          <label class="order-form__option"><input class="order-form__input" type="checkbox" name="extras" value="seat"> Детское кресло (+300 ₽/сутки)</label>
+          <label class="order-form__option"><input class="order-form__input" type="checkbox" name="extras" value="gps"> GPS-навигатор (+250 ₽/сутки)</label>
+          <label class="order-form__option"><input class="order-form__input" type="checkbox" name="extras" value="insurance"> Полная страховка (+700 ₽/сутки)</label>
+          <label class="order-form__option"><input class="order-form__input" type="checkbox" name="extras" value="driver"> Водитель (+2 500 ₽/сутки)</label>
+        </fieldset>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-comment">Комментарий</label>
+          <textarea class="order-form__textarea" id="order-comment" name="comment" rows="3" placeholder="Укажите дополнительную информацию" aria-describedby="order-comment-error"></textarea>
+          <p class="order-form__error" id="order-comment-error" hidden></p>
+        </div>
+
+        <fieldset class="order-form__fieldset">
+          <legend class="order-form__legend">Как с вами связаться</legend>
+          <label class="order-form__option"><input class="order-form__input" type="radio" name="contact-method" value="phone" checked> По телефону</label>
+          <label class="order-form__option"><input class="order-form__input" type="radio" name="contact-method" value="email"> По e-mail</label>
+        </fieldset>
+
+        <div class="order-summary" role="group" aria-label="Стоимость аренды">
+          <p class="order-summary__total" id="order-total" role="status">Итого: —</p>
+          <p class="order-summary__text" id="order-total-text">Выберите автомобиль и даты аренды, чтобы увидеть стоимость.</p>
+        </div>
+
+        <div class="order-form__field order-form__field--checkbox">
+          <label class="order-form__label">
+            <input class="order-form__input" id="order-agreement" name="agreement" type="checkbox" required aria-describedby="order-agreement-error">
+            Я согласен на обработку данных <span class="order-form__required" aria-hidden="true">*</span>
+          </label>
+          <p class="order-form__error" id="order-agreement-error" hidden></p>
+        </div>
+
+        <div class="order-form__actions">
+          <button class="button button--secondary" type="button" id="close-order-dialog" data-close-dialog>Закрыть</button>
+          <button class="button button--primary" type="submit">Отправить заявку</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="Наверх" title="Наверх" hidden>&uarr;</button>
+
+  <div class="toast" id="success-toast" role="status" aria-live="polite" aria-atomic="true" hidden>
+    <p class="toast__text" id="success-message"></p>
+    <button class="toast__close" type="button" data-close-toast aria-label="Закрыть">&times;</button>
+  </div>
+  </div>
+</body>
+</html>
